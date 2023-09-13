@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
+
 <body>
-    <div id="item">
-        <img src="images/flower.jpg" alt="">
-        <button class="over" id="open" onclick="showDetail()">상세 설명보기</button>
-        <div id="desc" class="datail">
-            <h4>무궁화</h4>
-            <p>북아메리카 원산으로 각지에서 관상초로 흔히 심고 있는 귀화식물이다. 길가나 잔디밭에서 흔히 볼 수 있다. 아주 작은 씨앗을 무수히 많이 가지고 있는데 바람을 이용해 씨앗들을 날려보내거나, 뿌리줄기를 통해 동일한 개체들을 많이 만들어 냄으로써 번식한다.</p>
-            <button id="close">상세 설명 닫기</button>
+    <form name="form1">
+        <div>문자열 입력</div>
+        <input type="text" class="form-control" id="ser" aria-describedby="emailHelp">
+        <div>결과</div>
+        <div class="form-control" style="height: 35px;">
+            <div id="re"></div>
         </div>
-    </div>
-    <script>
-        let $descDiv = document.getElementById('desc');
-        let $openBtn = document.getElementById('open');
-        let $closeBtn = document.getElementById('close');
-        function showDetail(){
-            $descDiv.style.display="block";
-            $openBtn.style.display="none";
-        }
-        $closeBtn.addEventListener('click',()=>{
-            $descDiv.style.display="none";
-            $openBtn.style.display="block";
-        });
-    </script>
+        <div id="test"></div>
+        <br>
+        <button type="button" class="btn btn-primary" onclick="bt()">문자열 추출(substring)</button>
+        <button type="reset" class="btn btn-primary">reset</button>
+    </form>
 </body>
+<script>
+    function bt()
+    {
+        var date = document.getElementById('ser').value;
+        var year = date.substring(0, 4);
+        var mou = date.substring(4, 6);
+        document.getElementById("re").innerText = year + "년 " + mou + "월 입니다.";
+        document.getElementById("test").innerText = "결과가 성공적으로 처리되었습니다";
+    }
+</script>
 </html>
